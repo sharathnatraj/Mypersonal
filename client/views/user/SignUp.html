@@ -1,0 +1,41 @@
+      
+      <section ><!-- Meetups View -->
+      <div ng-controller="UserController" >
+        <h1>User Registration</h1>
+
+        
+        <div id="error_message">{{$scope.errors}}</div>
+        <form class="form-horizontal">
+        
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="users.firstName" placeholder="First Name"/>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" required id="lastName" name="lastName" class="form-control" data-ng-model="users.lastName" placeholder="Last Name"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" required id="email" name="email" class="form-control" data-ng-model="users.email" placeholder="Email Address"/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" required id="password" name="mobile" class="form-control" data-ng-model="users.password" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+          <label for="role">Register As</label>
+          <select required id="role" name="role" class="form-control" data-ng-model="users.role" placeholder="role">
+            <option value="">-- Choose a Role--</option>
+            <option value="parent">Parent</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+        </div>
+          <p align="center"><button type="submit" class="btn-large btn-success" ng-click="signupFunction()">Sign Up</button></p>
+        </form> 
+      </div>
+    </section>
+
+  </body>
+</html>

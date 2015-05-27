@@ -1,0 +1,2 @@
+
+myapp = angular.module("meetupApp", []);
