@@ -34,4 +34,10 @@ usersApp.post('/signUpTeacher', function(req, res) {
 });
 
 
+// define the login route
+usersApp.post('/login', function(req, res) {
+	console.log(req.body);
+ 	userController.authenticateUser(req,res);
+});
+
 module.exports = usersApp;

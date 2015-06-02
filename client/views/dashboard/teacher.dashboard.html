@@ -1,0 +1,26 @@
+
+<div>
+<section ng-controller="AuthenticationController">
+<header data-ng-include="'/views/dashboard/teacher.header.dashboard.html'" class="navbar navbar-inverse"></header>
+</section>
+</div>
+<section>
+	<div class="text-center" ng-controller="SearchController"> 
+		<!--Adding the search bar!-->
+		<form class="form-search" name="searchForm" ng-submit="search()">
+		    <div class="input-append">
+		        <input type="text" required class="search-query" id="searchTerm" name="searchTerm" data-ng-model="searchTerm">
+		        <button type="submit" class="btn">Search Teachers</button>
+		    </div>
+		</form>
+	<div data-ng-show="searchResults">
+		<ul>
+          <li ng-repeat="teacher in searchResults">
+            <img src={{teacher.profilePic}}/>
+          </li>
+        </ul>
+	</div>
+	</div>
+
+</section>
+

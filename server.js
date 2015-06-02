@@ -5,10 +5,8 @@ mongoose = require('mongoose');
 
 //getting routes
 var users = require('./server/routes/user.route');
+var search = require('./server/routes/search.route');
 
-
-//getting controllers
-meetupsController = require('./server/controllers/meetups-controller.js');
 
 
 //connecting to mongodb
@@ -21,17 +19,14 @@ app.get('/', function(req,res){
 });
 
 //setting app.use
-app.use(bodyParser());
+app.use(bodyParser({limit: '100mb'}));
 app.use('/js', express.static(__dirname+'/client/js'));
 app.use('/css', express.static(__dirname+'/client/css'));
 app.use('/images', express.static(__dirname+'/client/css/core/images'));
 app.use('/views', express.static(__dirname+'/client/views'));
 app.use('/routes', express.static(__dirname+'/client/routes'));
 app.use('/users', users);
-
-app.get('/api/meetups', meetupsController.list);
-
-app.post('/api/meetups', meetupsController.create);
+app.use('/search', search);
 
 exports.dirname = __dirname;
 

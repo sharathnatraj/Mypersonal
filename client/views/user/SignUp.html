@@ -1,27 +1,32 @@
       
       <section ><!-- Meetups View -->
-      <div ng-controller="UserController" >
+      <div ng-controller="AuthenticationController" >
         <h1>User Registration</h1>
 
         
         <div id="error_message">{{$scope.errors}}</div>
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="signupForm" ng-submit="signup()">
         
         <div class="form-group">
           <label for="firstName">First Name</label>
           <input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="users.firstName" placeholder="First Name"/>
+           <span class="text-error" ng-show="signupForm.firstName.$error.required">First Name is required</span>
         </div>
         <div class="form-group">
           <label for="lastName">Last Name</label>
           <input type="text" required id="lastName" name="lastName" class="form-control" data-ng-model="users.lastName" placeholder="Last Name"/>
+          <span class="text-error" ng-show="signupForm.lastName.$error.required">Last Name is required</span>
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" required id="email" name="email" class="form-control" data-ng-model="users.email" placeholder="Email Address"/>
+          <span class="text-error" ng-show="signupForm.email.$error.required">Email Address is required</span>
+          <span class="text-error" ng-show="signupForm.email.$error.email">Please enter a valid email address</span>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" required id="password" name="mobile" class="form-control" data-ng-model="users.password" placeholder="Password"/>
+          <input type="password" required id="password" name="password" class="form-control" data-ng-model="users.password" placeholder="Password"/>
+           <span class="text-error" ng-show="signupForm.password.$error.required">Password is required</span>
         </div>
         <div class="form-group">
           <label for="role">Register As</label>
@@ -31,8 +36,9 @@
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
           </select>
+           <span class="text-error" ng-show="signupForm.role.$error.required">Please select a role</span>
         </div>
-          <p align="center"><button type="submit" class="btn-large btn-success" ng-click="signupFunction()">Sign Up</button></p>
+          <p align="center"><button type="submit" class="btn-large btn-success" >Sign Up</button></p>
         </form> 
       </div>
     </section>

@@ -42,6 +42,9 @@ module.exports= mongoose.model('teacher',{
 	languagesSpoken :{
 		type:String
 	},
+	profilePic: { 
+		data: Buffer, contentType: String 
+	},
 	created: {
 		type: Date,
 		default: Date.now
